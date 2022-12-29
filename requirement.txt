@@ -1,0 +1,9 @@
+# 把所有需要安装的包放在该TXT文件中，在控制台通过命令行一次性进行安装
+# pip install -r requirement.txt
+pytest
+pytest-html
+pytest-xdist
+pytest-ordering
+pytest-rerunfailures
+pytest-base-url
+allure-pytest
