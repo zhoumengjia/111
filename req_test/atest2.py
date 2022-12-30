@@ -1,4 +1,4 @@
-from req_test.test_1 import TestInf
+from req_test.atest_1 import TestInf
 from commom.requests_util import RequestUtil
 
 
