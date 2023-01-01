@@ -1,0 +1,4 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Mon Jan 02 01:33:53 CST 2023","Mon Jan 02 01:33:57 CST 2023","3852","testcases","test_ttwater","TestTwater","","","test_get_ttwater[caseinfo1]",""
+"passed","Mon Jan 02 01:33:48 CST 2023","Mon Jan 02 01:33:49 CST 2023","1471","testcases","test_ttwater","TestTwater","","","test_get_token[caseinfo0]",""
+"passed","Mon Jan 02 01:33:49 CST 2023","Mon Jan 02 01:33:53 CST 2023","4183","testcases","test_ttwater","TestTwater","","","test_get_ttwater[caseinfo0]",""

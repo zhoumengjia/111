@@ -1,0 +1,25 @@
+-
+  featrue: 解析
+  story: 接口
+  title: 用例1
+  request:
+    method: post
+    url: https://hitpaw-test-api.afirstsoft.cn/api/v2/ttWatermarkRemove
+    headers:
+      'authorization': read_yaml("access_token")
+    data:
+      'video_url': https://www.tiktok.com/@cedricgrolet/video/7175939915048373510?is_from_webapp=1&sender_device=pc
+  vilidate: null
+
+-
+  featrue: 模块
+  story: 接口
+  title: 用例2
+  request:
+    method: post
+    url: https://hitpaw-test-api.afirstsoft.cn/api/v2/ttWatermarkRemove
+    headers:
+      'authorization': read_yaml("access_token")
+    data:
+      'video_url': https://www.tiktok.com/@cedricgrolet/video/7175939915048373510?is_from_webapp=1&sender_device=pc
+  vilidate: null

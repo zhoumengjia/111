@@ -1,38 +1,31 @@
-import jsonpath
 import pytest
-import requests
 from commom.requests_util import RequestUtil
-from commom.yaml_util import write_yaml, read_yaml
+from commom.yaml_util import write_yaml, read_yaml, read_yaml_testcase
 
 
-class TestInf:
-    def __init__(self):
-        self.token = ''
-        self.sess = requests.session()
+class TestTwater:
+    @pytest.mark.parametrize("caseinfo", read_yaml_testcase("data/test_get_token.yaml"))
+    def test_get_token(self,caseinfo,base_url):
+        print(caseinfo["featrue"])
+        print(caseinfo["title"])
+        url = base_url + caseinfo["request"]["url"]
+        data = caseinfo["request"]["data"]
+        res = RequestUtil().send_all_request(method=caseinfo["request"]["method"], url=url, data=data)
+        write_yaml({"access_token": res.json()['data']['authorization']})
 
-    def test_get_token(self):
-        url = "https://hitpaw-test-api.afirstsoft.cn/api/v2/sessions"
-        data = {
-            'email': 'zhoumengjia@tenorshare.cn',
-            'password': 'zhou123456'
-        }
-        res = self.sess.request("post",url=url, data=data)
-        self.token = res.json()['data']['authorization']
-
-    def test_get_ttwater(self):
-        urls = "https://hitpaw-test-api.afirstsoft.cn/api/v2/ttWatermarkRemove"
-        data = {
-            'video_url':'https://www.tiktok.com/@cedricgrolet/video/7175939915048373510?is_from_webapp=1&sender_device=pc'
-        }
+    @pytest.mark.parametrize("caseinfo", read_yaml_testcase("data/test_get_ttwater.yaml"))
+    def test_get_ttwater(self, caseinfo,my_fixture):
+        print(caseinfo["featrue"])
+        print(caseinfo["title"])
+        urls = caseinfo["request"]["url"]
+        data = caseinfo["request"]["data"]
         header = {
-            'Authorization': self.token
+            'Authorization': read_yaml("access_token")
         }
-        res = self.sess.request("post", url=urls, data=data, headers=header)
-        print(res.json())
+        res = RequestUtil().send_all_request(method=caseinfo["request"]["method"], url=urls, data=data, headers=header)
 
-
-if __name__ == '__main__':
-    testinf = TestInf()
-    testinf.test_get_token()
-    testinf.test_get_ttwater()
-
+#
+# if __name__ == '__main__':
+#     testinf = TestTwater()
+#     testinf.test_get_token()
+#     testinf.test_get_ttwater()

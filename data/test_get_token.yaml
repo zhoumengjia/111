@@ -1,0 +1,14 @@
+-
+  featrue: 登录
+  story: 接口
+  title: 获取登录用户的token
+  request:
+    method: post
+    url: /api/v2/sessions
+    headers:
+      'authorization': read_yaml("access_token")
+    data:
+      'email': zhoumengjia@tenorshare.cn
+      'password': zhou123456
+    vilidate: null
+

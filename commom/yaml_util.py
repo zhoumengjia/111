@@ -13,8 +13,13 @@ def read_yaml(key):
         value = yaml.load(f, yaml.FullLoader)
         return value[key]
 
-
 #清空
 def clear_yaml():
     with open(os.getcwd() + "/extract.yaml", encoding="utf-8", mode="w") as f:
         f.truncate()
+
+# 读取yaml接口文件
+def read_yaml_testcase(yamlpath):
+    with open(os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "/"+yamlpath, encoding="utf-8", mode="r") as f:
+        value = yaml.load(f, yaml.FullLoader)
+        return value
